@@ -1,0 +1,27 @@
+{
+  "name": "magic-movie-part1",
+  "version": "1.0.0",
+  "description": "SoftUni task with Express Js and Handlebars",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PalmiraGeorgieva/Magic-Movie-Part1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/PalmiraGeorgieva/Magic-Movie-Part1/issues"
+  },
+  "homepage": "https://github.com/PalmiraGeorgieva/Magic-Movie-Part1#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^9.0.1",
+    "handlebars": "^4.7.9"
+  }
+}
