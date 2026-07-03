@@ -12,5 +12,8 @@ app.use(express.static('./src/static'));
 app.get('/', (req, res) => {
     res.render('home', { layout: false});
 });
+app.get('/about', (req, res) => {
+    res.render('about', { layout: false});
+});
 
 app.listen(3000, () => console.log('Server is running on http://localhost:3000'));
