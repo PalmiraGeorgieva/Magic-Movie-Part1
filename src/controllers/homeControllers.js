@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { getAll } from "../repositories/movieRepository.js";
 import movieServices from "../services/movieServices.js";
 
 const homeController = Router();
