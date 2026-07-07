@@ -54,6 +54,17 @@
       "rating": 8.9,
       "description": "asdasdasd",
       "id": "f1199a15-6163-4213-a279-0cf7abe09a19"
+    },
+    {
+      "title": "Test Movie",
+      "category": "movie",
+      "genre": "Drama",
+      "director": "Tester",
+      "year": "2025",
+      "image": "https://example.com/poster.jpg",
+      "rating": "7.5",
+      "description": "Sample movie",
+      "id": "bc119be3-37a7-4052-98a9-a8de5a6e2acf"
     }
   ]
 }
