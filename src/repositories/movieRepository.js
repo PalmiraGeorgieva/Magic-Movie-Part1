@@ -22,14 +22,25 @@ async function getAll() {
 
 async function create(movieData) {
     movieData.id = uuid();
+    if (movieData.image && !movieData.imageUrl) {
+        movieData.imageUrl = movieData.image;
+    }
     const db = await readDB();
     db.movies.push(movieData);
     await writeDB(db);
 }
-
+async function getById(movieId) {
+    const movies = await readDB('movies');
+    const movie = movies.find(m => m.id === movieId);
+    if(!movie) {
+      throw new Error(`Movie with ID '${movieId}' not found`);
+    }
+    return movie;
+}
 const movieRepository = {
     getAll,
-    create
+    create,
+    getById
 };
 
 export default movieRepository;
