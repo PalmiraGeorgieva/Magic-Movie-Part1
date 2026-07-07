@@ -10,13 +10,26 @@ export async function readDB(collection) {
   return collection ? db[collection] : db;
 } 
 
+async function writeDB(db) {
+  const content = JSON.stringify(db, null, 2);
+  await fs.writeFile('./src/db.json', content);
+}
+
 async function getAll() {
     const movies = await readDB('movies');
     return movies;
 }    
 
+async function create(movieData) {
+   movieData.id = Date.now().toString();
+    const db = await readDB('movies');
+    db.movies.push(movieData);
+    await writeDB(db);
+}
+
 const movieRepository = {
-    getAll
+    getAll,
+    create
 };
 
 export default movieRepository;

@@ -5,9 +5,11 @@ movieController.get('/', (req, res) => {
     res.render('create');
 });
 
-movieController.post('/create', (req, res) => {
-    console.log('post request received');
-    console.log(req.body);
+movieController.post('/create', async (req, res) => {
+    const newMovie = req.body;
+    await movieServices.create(newMovie);
+    res.redirect('/');
+
 });
 
 export default movieController;
