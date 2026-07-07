@@ -5,11 +5,11 @@ const movieController = Router();
 
 movieController.get('/search', async (req, res) =>{
     const movies = await movieServices.getAll();
-    res.render('movie/search', { movies });
+    res.render('movies/search', { movies });
 });
 
 movieController.get('/create', (req, res) => {
-    res.render('movie/create');
+    res.render('movies/create');
 });
 
 movieController.post('/create', async (req, res) => {
@@ -21,7 +21,7 @@ movieController.post('/create', async (req, res) => {
 movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieServices.getById(movieId);
-    res.render('details', { movie });
+    res.render('movies/details', { movie });
 });
 
 export default movieController;
