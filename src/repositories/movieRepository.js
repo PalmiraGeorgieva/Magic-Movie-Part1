@@ -15,7 +15,7 @@ async function writeDB(db) {
   await fs.writeFile('./src/db.json', content);
 }
 
-async function getAll() {
+async function getAll(filter = {}) {
     const movies = await readDB('movies');
     return movies;
 }    
@@ -37,10 +37,25 @@ async function getById(movieId) {
     }
     return movie;
 }
+
+async function search(searchParams = {}) {
+    const movies = await readDB('movies');
+    const { search = '', genre = '', year = '' } = searchParams;
+
+    return movies.filter(movie => {
+        const matchesSearch = !search || movie.title.toLowerCase().includes(search.toLowerCase());
+        const matchesGenre = !genre || movie.genre.toLowerCase().includes(genre.toLowerCase());
+        const matchesYear = !year || String(movie.year) === String(year);
+
+        return matchesSearch && matchesGenre && matchesYear;
+    });
+}
+
 const movieRepository = {
     getAll,
     create,
-    getById
+    getById,
+    search
 };
 
 export default movieRepository;

@@ -1,7 +1,7 @@
 import movieRepository from '../repositories/movieRepository.js';
 
-async function getAll() {
-    return movieRepository.getAll();
+async function getAll(filter = {}) {
+    return movieRepository.getAll(filter);
 }
 
 async function create(movieData) {
@@ -12,10 +12,15 @@ async function getById(movieId) {
     return movieRepository.getById(movieId);
 }
 
+async function search(searchParams) {
+    return movieRepository.search(searchParams);
+}
+
 const movieServices = {
     getAll,
     create,
-    getById
+    getById,
+    search
 };
 
 export default movieServices;
